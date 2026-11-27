@@ -1,0 +1,22 @@
+{
+  "name": "yoru",
+  "private": true,
+  "description": "A Netflix-style anime streaming front end with an adaptive HLS player and an on-device recommender.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "homepage": "https://yoru.clawtrial.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Assassin-1234/Yoru.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "start:streams": "node media-server.mjs",
+    "sync:zoko": "node scripts/sync-zoko.mjs",
+    "build": "node scripts/build.mjs",
+    "deploy": "bash scripts/deploy.sh"
+  }
+}

@@ -1,0 +1,23 @@
+[Unit]
+Description=YORU Zoko stream gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/var/www/yoru/service
+Environment=PORT=5174
+Environment=FLARESOLVERR_URL=http://127.0.0.1:8191
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node media-server.mjs
+Restart=always
+RestartSec=2
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

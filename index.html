@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>YORU — Anime, after dark</title>
+  <meta name="description" content="YORU is a premium home for anime: trending simulcasts, all-time classics, official trailers and where to stream every episode legally.">
+  <meta name="theme-color" content="#07070a">
+  <meta property="og:title" content="YORU — Anime, after dark">
+  <meta property="og:description" content="Discover, preview and track the anime worth your night.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://graphql.anilist.co" crossorigin>
+  <link rel="preconnect" href="https://s4.anilist.co">
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Onest:wght@300..700&family=Shippori+Mincho+B1:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/player.css">
+  <script>
+    try {
+      if (sessionStorage.getItem('yoru:intro') || matchMedia('(prefers-reduced-motion: reduce)').matches || location.hash.length > 2)
+        document.documentElement.classList.add('no-intro');
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.6v14.8a1 1 0 0 0 1.52.85l12.2-7.4a1 1 0 0 0 0-1.7L8.52 3.75A1 1 0 0 0 7 4.6Z"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 11v6"/><path d="M12 7.4v.1" stroke-width="2.6"/></g></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m15 5-7 7 7 7"/></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5.5 9 6.5 6.5L18.5 9"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.6 15.6 4.6 4.6"/></g></symbol>
+      <symbol id="i-vol-on" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 9.3h3.6L11.6 5v14l-4.5-4.3H3.5z"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M15 9a4.2 4.2 0 0 1 0 6M17.8 6.2a8.2 8.2 0 0 1 0 11.6"/></symbol>
+      <symbol id="i-vol-off" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 9.3h3.6L11.6 5v14l-4.5-4.3H3.5z"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="m15.5 9.5 5 5m0-5-5 5"/></symbol>
+      <symbol id="i-replay" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v4h4"/></g></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5h5.5V10M19.5 4.5 11 13"/><path d="M18 14v4.5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1H10"/></g></symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15M10.5 6l-6 6 6 6"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 3.2 2.66 5.4 5.96.86-4.31 4.2 1.02 5.94L12 16.8l-5.33 2.8 1.02-5.94-4.31-4.2 5.96-.86z"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M4 10.4 12 4l8 6.4V19a1 1 0 0 1-1 1h-4.6v-5.6H9.6V20H5a1 1 0 0 1-1-1z"/></symbol>
+      <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6.5" width="18" height="12.5" rx="2"/><path d="m8.5 3 3.5 3.5L15.5 3"/></g></symbol>
+      <symbol id="i-film" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M7.5 4v16M16.5 4v16M3.5 9h4M3.5 15h4M16.5 9h4M16.5 15h4"/></g></symbol>
+      <symbol id="i-flame" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M12 21c-3.9 0-6.5-2.7-6.5-6.3 0-3.2 2.2-5.3 3.6-7 .4 1.8 1.4 3 2.4 3.4C11.3 7.4 12.6 4.6 15 3c-.2 2.8 1 4.4 2.2 6 1 1.3 1.8 2.8 1.8 4.9C19 17.9 16.1 21 12 21Z"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></g></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+      <symbol id="i-bookmark" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M6.5 4h11a1 1 0 0 1 1 1v15l-6.5-4-6.5 4V5a1 1 0 0 1 1-1Z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><g fill="currentColor"><rect x="6" y="4.5" width="4.2" height="15" rx="1"/><rect x="13.8" y="4.5" width="4.2" height="15" rx="1"/></g></symbol>
+      <symbol id="i-back10" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 11.4a7.6 7.6 0 1 0 2.3-5.2"/><path d="M4.4 3.6v4.1h4.1"/></g><text x="12.3" y="15.6" fill="currentColor" font-size="7.2" font-weight="700" font-family="Onest, system-ui, sans-serif" text-anchor="middle">10</text></symbol>
+      <symbol id="i-fwd10" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 11.4a7.6 7.6 0 1 1-2.3-5.2"/><path d="M19.6 3.6v4.1h-4.1"/></g><text x="11.7" y="15.6" fill="currentColor" font-size="7.2" font-weight="700" font-family="Onest, system-ui, sans-serif" text-anchor="middle">10</text></symbol>
+      <symbol id="i-next" viewBox="0 0 24 24"><path fill="currentColor" d="M5 5.6v12.8a.9.9 0 0 0 1.38.76l9.4-6.4a.9.9 0 0 0 0-1.5l-9.4-6.4A.9.9 0 0 0 5 5.6Z"/><rect x="16.6" y="5" width="2.6" height="14" rx="1" fill="currentColor"/></symbol>
+      <symbol id="i-episodes" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3" y="8.2" width="14.5" height="11.3" rx="1.6"/><path d="M6.5 5.2h12.9a1.6 1.6 0 0 1 1.6 1.6v9.4" stroke-linecap="round"/></g><path fill="currentColor" d="M8.4 11.2v5.3l4.4-2.65z"/></symbol>
+      <symbol id="i-subtitles" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5h15a1.5 1.5 0 0 1 1.5 1.5v9.5a1.5 1.5 0 0 1-1.5 1.5H11l-4.5 3.5V17H4.5A1.5 1.5 0 0 1 3 15.5V6a1.5 1.5 0 0 1 1.5-1.5Z"/><path d="M7 9.5h6M15.5 9.5H17M7 13h2.5M12 13h5"/></g></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 16.5a8.6 8.6 0 1 1 16.4 0"/><path d="m12 13.6 4.2-4.6"/></g><circle cx="12" cy="13.8" r="1.7" fill="currentColor"/></symbol>
+      <symbol id="i-pip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="2.8" y="4.5" width="18.4" height="15" rx="1.8"/></g><rect x="12" y="11.6" width="7" height="5.6" rx="1" fill="currentColor"/></symbol>
+      <symbol id="i-fullscreen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 9V4.5h4.5M15.5 4.5H20V9M20 15v4.5h-4.5M8.5 19.5H4V15"/></symbol>
+      <symbol id="i-fullscreen-exit" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 4v4.5H4M20 8.5h-4.5V4M15.5 20v-4.5H20M4 15.5h4.5V20"/></symbol>
+      <symbol id="i-vol-low" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 9.3h3.6L11.6 5v14l-4.5-4.3H3.5z"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M15 9a4.2 4.2 0 0 1 0 6"/></symbol>
+      <symbol id="i-thumb-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7.5 10.2 11.3 3.6c1.4 0 2.4 1.2 2.1 2.6l-.7 3.4h5.6a2 2 0 0 1 2 2.4l-1.3 6.4a2.2 2.2 0 0 1-2.2 1.8H7.5zM3.5 10.2h4v10h-4z"/></symbol>
+      <symbol id="i-thumb-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M16.5 13.8 12.7 20.4c-1.4 0-2.4-1.2-2.1-2.6l.7-3.4H5.7a2 2 0 0 1-2-2.4L5 5.6a2.2 2.2 0 0 1 2.2-1.8h9.3zM20.5 13.8h-4v-10h4z"/></symbol>
+      <symbol id="i-thumbs-love" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5.2 11.6 8.3 6.3c1.1 0 2 1 1.7 2.1l-.5 2.7h4.4a1.6 1.6 0 0 1 1.6 1.9l-1 5.1a1.8 1.8 0 0 1-1.8 1.5H5.2zM2.3 11.6h2.9v8H2.3z"/><path d="M11.6 6.3 14.7 1.9c1.1 0 1.9 1 1.6 2.1l-.4 2h4a1.6 1.6 0 0 1 1.6 1.9l-1 5.1a1.8 1.8 0 0 1-1.8 1.5h-2" stroke-linecap="round"/></g></symbol>
+      <symbol id="i-history" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.4 12a7.6 7.6 0 1 0 2.2-5.4"/><path d="M4.4 4.4v4.2h4.2"/><path d="M12 8v4.4l2.8 1.8"/></g></symbol>
+    </defs>
+  </svg>
+
+  <div id="intro" aria-hidden="true">
+    <div class="intro-glow"></div>
+    <div class="intro-mark">
+      <span class="intro-seal">夜</span>
+      <span class="intro-word"><i>Y</i><i>O</i><i>R</i><i>U</i></span>
+    </div>
+    <p class="intro-tag">Anime, after dark</p>
+  </div>
+
+  <a class="skip" href="#view">Skip to content</a>
+
+  <header class="nav">
+    <a class="brand" href="#/" aria-label="YORU home">
+      <span class="seal">夜</span><span class="wordmark">YORU</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#/" data-nav="">Home</a></li>
+        <li><a href="#/series" data-nav="series">Series</a></li>
+        <li><a href="#/films" data-nav="films">Films</a></li>
+        <li><a href="#/new" data-nav="new">New &amp; Popular</a></li>
+        <li><a href="#/list" data-nav="list">My List</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="search" role="search">
+        <button class="search-btn" data-search-toggle aria-label="Search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg></button>
+        <input id="q" type="search" placeholder="Titles, genres, studios" autocomplete="off" spellcheck="false" aria-label="Search anime">
+        <button class="search-clear" data-search-clear aria-label="Clear search"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+      <a class="avatar" href="#/activity" aria-label="Viewing activity and taste profile" title="Viewing activity"><span>夜</span></a>
+    </div>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+  <div id="stage"></div>
+
+  <footer class="foot">
+    <div class="foot-brand"><span class="seal">夜</span><span class="wordmark">YORU</span></div>
+    <p class="foot-line">Anime, after dark. Discover what to watch, pick up where you left off, and let your taste find the next one.</p>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#/series">Series</a><a href="#/films">Films</a><a href="#/new">New &amp; Popular</a><a href="#/list">My List</a>
+      <a href="https://anilist.co" target="_blank" rel="noopener">Data by AniList</a>
+    </nav>
+    <p class="foot-fine">Catalogue data and artwork courtesy of AniList and their respective rights holders; trailers are embedded from official YouTube channels. Until streaming rights are in place, the player uses openly licensed Blender Foundation films (CC BY 3.0) as demo streams.</p>
+  </footer>
+
+  <nav class="tabbar" aria-label="Primary">
+    <a href="#/" data-nav=""><svg class="i" aria-hidden="true"><use href="#i-home"/></svg><span>Home</span></a>
+    <a href="#/series" data-nav="series"><svg class="i" aria-hidden="true"><use href="#i-tv"/></svg><span>Series</span></a>
+    <a href="#/films" data-nav="films"><svg class="i" aria-hidden="true"><use href="#i-film"/></svg><span>Films</span></a>
+    <a href="#/new" data-nav="new"><svg class="i" aria-hidden="true"><use href="#i-flame"/></svg><span>New</span></a>
+    <a href="#/list" data-nav="list"><svg class="i" aria-hidden="true"><use href="#i-bookmark"/></svg><span>My List</span></a>
+  </nav>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

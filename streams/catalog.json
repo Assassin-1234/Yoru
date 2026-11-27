@@ -1,0 +1,5 @@
+{
+  "_readme": "Optional owned streams, keyed by AniList id + episode. Overrides Zoko. 'featured' pins titles to the Home billboard.",
+  "featured": [97940],
+  "titles": {}
+}
