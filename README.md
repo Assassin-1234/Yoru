@@ -10,10 +10,10 @@ Continue Watching, ratings, and an on-device recommender that learns your taste.
 [**Live demo →**](https://yoru.clawtrial.app)
 
 [![Live demo](https://img.shields.io/badge/demo-yoru.clawtrial.app-ff4a2b?style=flat-square)](https://yoru.clawtrial.app)
-[![License: PolyForm Noncommercial](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-555?style=flat-square)](LICENSE)
+[![License: PolyForm Noncommercial](https://img.shields.io/badge/license-PolyForm_Noncommercial_1.0.0-ff4a2b?style=flat-square)](LICENSE)
 ![Vanilla JS](https://img.shields.io/badge/vanilla-JS%20%2B%20ES%20modules-f7df1e?style=flat-square)
 ![Zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
-![Node](https://img.shields.io/badge/node-%E2%89%A518-339933?style=flat-square)
+![Node](https://img.shields.io/badge/node-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 
 <img src="docs/screenshots/home.webp" alt="YORU home page with the featured billboard and Trending Now row" width="100%" />
 
